@@ -39,7 +39,7 @@ pipeline {
 
                 sh '''
                     echo "Installation des dépendances de test..."
-                    pip3 install -r requirements.txt
+                    pip3 install --break-system-packages -r requirements.txt
 
                     echo "Lancement des tests unitaires..."
                     python3 -m pytest test_app.py -v --cov=app --cov-report=term-missing
