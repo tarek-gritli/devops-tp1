@@ -25,8 +25,7 @@ class TestFlaskApp(unittest.TestCase):
         response = self.client.get('/')
 
         # Vérifications
-        # ERREUR VOLONTAIRE : on attend 404 au lieu de 200 pour faire échouer le test
-        self.assertEqual(response.status_code, 404)  # ← ERREUR ICI
+        self.assertEqual(response.status_code, 200)
         self.assertIn(b'Bonjour', response.data)
         self.assertIn(b'5', response.data)
         mock_redis.incr.assert_called_once_with('hits')
